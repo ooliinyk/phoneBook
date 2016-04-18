@@ -1,6 +1,13 @@
 package com.entity;
 
+import com.validator.Phone;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by user on 15.04.2016.
@@ -15,15 +22,24 @@ public class PhoneBookItem {
     @Column(name = "phone_book_item_id")
     private long id;
 
+
+    @Size(min=4)
+    @NotEmpty
     @Column(name = "surname")
     private String surname;
 
+    @Size(min=4)
+    @NotEmpty
     @Column(name = "name")
     private String name;
 
+    @Size(min=4)
+    @NotEmpty
     @Column(name = "patronymic")
     private String patronymic;
 
+
+    @Phone
     @Column(name = "mob_phone")
     private String mobPhone;
 
@@ -33,8 +49,16 @@ public class PhoneBookItem {
     @Column(name = "address")
     private String address;
 
+    @Email
     @Column(name = "email")
     private String email;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_to_phone_book_item",
+            joinColumns = {@JoinColumn(name = "phone_book_item_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")})
+    private Set<User> users = new HashSet<User>();
+
 
     public String getAddress() {
         return address;
@@ -42,6 +66,14 @@ public class PhoneBookItem {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     public String getEmail() {
@@ -98,20 +130,5 @@ public class PhoneBookItem {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("PhoneBookItem{");
-        sb.append("address='").append(address).append('\'');
-        sb.append(", id=").append(id);
-        sb.append(", surname='").append(surname).append('\'');
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", patronymic='").append(patronymic).append('\'');
-        sb.append(", mobPhone='").append(mobPhone).append('\'');
-        sb.append(", homePhone='").append(homePhone).append('\'');
-        sb.append(", email='").append(email).append('\'');
-        sb.append('}');
-        return sb.toString();
     }
 }

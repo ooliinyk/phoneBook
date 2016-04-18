@@ -13,6 +13,10 @@ public interface PhoneBookItemService {
 
     List<PhoneBookItem> findAll();
 
+    List<PhoneBookItem> findByName(String name);
+
+    List<PhoneBookItem> findBySurname(String name);
+
     void saveDocument(PhoneBookItem phoneBookItem);
 
     void deleteById(long id);

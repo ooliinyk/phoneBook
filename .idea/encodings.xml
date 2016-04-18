@@ -6,7 +6,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/configuration/SecurityConfiguration.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/configuration/SecurityWebApplicationInitializer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/configuration/SpringMvcInitializer.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/controller/HelloWorldController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/dao/AbstractDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp" charset="UTF-8" />

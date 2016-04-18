@@ -28,6 +28,14 @@ public class PhoneBookItemServiceImpl implements PhoneBookItemService {
         return dao.findAll();
     }
 
+    public List<PhoneBookItem> findByName(String name) {
+        return dao.findByName(name);
+    }
+
+    public List<PhoneBookItem> findBySurname(String surnmae) {
+        return dao.findBySurname(surnmae);
+    }
+
       public void saveDocument(PhoneBookItem phoneBookItem) {
         dao.save(phoneBookItem);
     }

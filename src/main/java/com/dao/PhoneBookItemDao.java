@@ -14,6 +14,12 @@ public interface PhoneBookItemDao {
 
     PhoneBookItem findById(long id);
 
+    List<PhoneBookItem> findByName(String name);
+
+    List<PhoneBookItem> findBySurname(String surname);
+
+    List<PhoneBookItem> findByMobPhone(String mobPhone);
+
     void delteById(long id);
 
 

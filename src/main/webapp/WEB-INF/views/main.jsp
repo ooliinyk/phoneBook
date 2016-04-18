@@ -21,7 +21,75 @@
 
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead">List of Books </span></div>
+        <div class="panel-heading"><span class="lead">List of Items </span></div>
+
+        <div class="tablecontainer">
+
+
+            <div class="col-lg-6 ">
+                <form:form method="POST" action="finPhoneBookItemByName" commandName="phoneBookItem">
+
+
+                    <div class="form-group col-md-12">
+                        <label class="col-md-3 control-lable">Find by Name</label>
+
+                        <div class="col-md-7">
+                            <form:input type="text" path="name" id="name"/>
+                            <input type="submit" value="Find">
+
+                            <div class="has-error">
+                                <form:errors type="text" path="name"/>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </form:form>
+            </div>
+            <div class="col-lg-6 ">
+                <form:form method="POST" action="finPhoneBookItemBySurname" commandName="phoneBookItem">
+
+
+                    <div class="form-group col-md-12">
+                        <label class="col-md-3 control-lable">Find by Surname</label>
+
+                        <div class="col-md-7">
+                            <form:input type="text" path="surname" id="surname"/>
+                            <input type="submit" value="Find">
+
+                            <div class="has-error">
+                                <form:errors type="text" path="surname"/>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </form:form>
+            </div>
+            <%--<div class="col-lg-6 ">--%>
+                <%--<form:form method="POST" action="findBookByStyle" commandName="phoneBookItem">--%>
+                    <%--<div class="form-group col-md-12">--%>
+                        <%--<label class="col-md-3 control-lable">Find by MOB</label>--%>
+
+                        <%--<div class="col-md-7">--%>
+                            <%--<form:input type="text" path="mobPhone" id="style"/>--%>
+                            <%--<input type="submit" value="Find">--%>
+
+                            <%--<div class="has-error">--%>
+                                <%--<form:errors type="text" path="mobPhone"/>--%>
+                            <%--</div>--%>
+
+                        <%--</div>--%>
+                    <%--</div>--%>
+
+
+                <%--</form:form>--%>
+            <%--</div>--%>
+
+
+        </div>
 
 
         <div class="tablecontainer">

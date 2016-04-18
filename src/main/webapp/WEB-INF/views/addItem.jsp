@@ -101,7 +101,7 @@
 
             <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="name">mobPhone</label>
+                    <label class="col-md-3 control-lable" for="name">email</label>
 
                     <div class="col-md-7">
                         <form:input type="text" path="email" id="email" class="form-control input-sm"/>

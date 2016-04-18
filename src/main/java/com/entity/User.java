@@ -1,6 +1,9 @@
 package com.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,18 +20,28 @@ public class User {
     @Column(name = "user_id")
     private long id;
 
+    @Size(min=5)
+    @NotEmpty
     @Column(name = "login")
     private String login;
 
+    @Size(min=5)
+    @NotEmpty
     @Column(name = "password")
     private String password;
 
+    @Size(min=5)
+    @NotEmpty
     @Column(name = "surname")
     private String surname;
 
+    @Size(min=5)
+    @NotEmpty
     @Column(name = "name")
     private String name;
 
+    @Size(min=5)
+    @NotEmpty
     @Column(name = "patronymic")
     private String patronymic;
 
@@ -41,7 +54,7 @@ public class User {
 
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_to_book_item_id",
+    @JoinTable(name = "user_to_phone_book_item",
             joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "phone_book_item_id")})
     private Set<PhoneBookItem> phoneBookItems = new HashSet<PhoneBookItem>();
@@ -86,6 +99,14 @@ public class User {
         this.patronymic = patronymic;
     }
 
+    public Set<PhoneBookItem> getPhoneBookItems() {
+        return phoneBookItems;
+    }
+
+    public void setPhoneBookItems(Set<PhoneBookItem> phoneBookItems) {
+        this.phoneBookItems = phoneBookItems;
+    }
+
     public Set<Role> getRoles() {
         return roles;
     }
@@ -112,6 +133,7 @@ public class User {
         sb.append(", name='").append(name).append('\'');
         sb.append(", patronymic='").append(patronymic).append('\'');
         sb.append(", roles=").append(roles);
+        sb.append(", phoneBookItems=").append(phoneBookItems);
         sb.append('}');
         return sb.toString();
     }

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-
+    <jsp:include page="header.jsp"/>
     <div class="well">
         <div class="success">
             Greeting : ${greeting}
