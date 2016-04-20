@@ -1,5 +1,7 @@
 package com.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -15,36 +17,46 @@ import java.util.Set;
 @Table(name = "user")
 public class User {
 
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("user_id")
     @Column(name = "user_id")
     private long id;
 
     @Size(min=5)
     @NotEmpty
+    @JsonProperty("login")
     @Column(name = "login")
     private String login;
 
     @Size(min=5)
     @NotEmpty
+    @JsonProperty("password")
     @Column(name = "password")
     private String password;
 
     @Size(min=5)
     @NotEmpty
+    @JsonProperty("surname")
     @Column(name = "surname")
     private String surname;
 
     @Size(min=5)
     @NotEmpty
+    @JsonProperty("name")
     @Column(name = "name")
     private String name;
 
     @Size(min=5)
     @NotEmpty
+    @JsonProperty("patronymic")
     @Column(name = "patronymic")
     private String patronymic;
 
+    @JsonProperty("roles")
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "role_user",
             joinColumns = {@JoinColumn(name = "user_id")},
@@ -53,6 +65,7 @@ public class User {
 
 
 
+    @JsonProperty("phoneBookItems")
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_to_phone_book_item",
             joinColumns = {@JoinColumn(name = "user_id")},

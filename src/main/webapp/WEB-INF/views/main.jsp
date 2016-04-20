@@ -26,48 +26,48 @@
         <div class="tablecontainer">
 
 
-            <div class="col-lg-6 ">
-                <form:form method="POST" action="finPhoneBookItemByName" commandName="phoneBookItem">
+            <%--<div class="col-lg-6 ">--%>
+                <%--<form:form method="POST" action="finPhoneBookItemByName" commandName="phoneBookItem">--%>
 
 
-                    <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable">Find by Name</label>
+                    <%--<div class="form-group col-md-12">--%>
+                        <%--<label class="col-md-3 control-lable">Find by Name</label>--%>
 
-                        <div class="col-md-7">
-                            <form:input type="text" path="name" id="name"/>
-                            <input type="submit" value="Find">
+                        <%--<div class="col-md-7">--%>
+                            <%--<form:input type="text" path="name" id="name"/>--%>
+                            <%--<input type="submit" value="Find">--%>
 
-                            <div class="has-error">
-                                <form:errors type="text" path="name"/>
-                            </div>
+                            <%--<div class="has-error">--%>
+                                <%--<form:errors type="text" path="name"/>--%>
+                            <%--</div>--%>
 
-                        </div>
-                    </div>
-
-
-                </form:form>
-            </div>
-            <div class="col-lg-6 ">
-                <form:form method="POST" action="finPhoneBookItemBySurname" commandName="phoneBookItem">
+                        <%--</div>--%>
+                    <%--</div>--%>
 
 
-                    <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable">Find by Surname</label>
-
-                        <div class="col-md-7">
-                            <form:input type="text" path="surname" id="surname"/>
-                            <input type="submit" value="Find">
-
-                            <div class="has-error">
-                                <form:errors type="text" path="surname"/>
-                            </div>
-
-                        </div>
-                    </div>
+                <%--</form:form>--%>
+            <%--</div>--%>
+            <%--<div class="col-lg-6 ">--%>
+                <%--<form:form method="POST" action="finPhoneBookItemBySurname" commandName="phoneBookItem">--%>
 
 
-                </form:form>
-            </div>
+                    <%--<div class="form-group col-md-12">--%>
+                        <%--<label class="col-md-3 control-lable">Find by Surname</label>--%>
+
+                        <%--<div class="col-md-7">--%>
+                            <%--<form:input type="text" path="surname" id="surname"/>--%>
+                            <%--<input type="submit" value="Find">--%>
+
+                            <%--<div class="has-error">--%>
+                                <%--<form:errors type="text" path="surname"/>--%>
+                            <%--</div>--%>
+
+                        <%--</div>--%>
+                    <%--</div>--%>
+
+
+                <%--</form:form>--%>
+            <%--</div>--%>
             <%--<div class="col-lg-6 ">--%>
                 <%--<form:form method="POST" action="findBookByStyle" commandName="phoneBookItem">--%>
                     <%--<div class="form-group col-md-12">--%>

@@ -1,5 +1,7 @@
 package com.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 /**
@@ -10,10 +12,12 @@ import javax.persistence.*;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty("id")
     @Column(name = "role_id")
     private long id;
 
     @Column(name = "role_name", nullable = false)
+    @JsonProperty("roleName")
     private String roleName = RoleTypes.USER.getUserProfileType();
 
     public Role() {

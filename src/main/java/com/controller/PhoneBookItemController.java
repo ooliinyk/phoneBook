@@ -1,8 +1,8 @@
 package com.controller;
 
 import com.entity.PhoneBookItem;
-import com.entity.Role;
 import com.entity.User;
+import com.json.service.PhoneBookItemDAO;
 import com.service.PhoneBookItemService;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +11,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
+import java.io.IOException;
+import java.util.*;
 
 /**
  * Created by user on 16.04.2016.
@@ -70,14 +67,12 @@ public class PhoneBookItemController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
 
-        Set<User> users= new HashSet<User>();
+        Set<User> users = new HashSet<User>();
         users.add(userService.findByLogin(name));
 
         phoneBookItem.setUsers(users);
 
         phoneBookItemService.saveDocument(phoneBookItem);
-
-
 
 
 //        return "redirect:/login";
@@ -123,16 +118,16 @@ public class PhoneBookItemController {
 
 
     @RequestMapping(value = {"/finPhoneBookItemByName"}, method = RequestMethod.POST)
-        public String finPhoneBookItemByName(@ModelAttribute PhoneBookItem phoneBookItem, @RequestParam String name, ModelMap model) {
+    public String finPhoneBookItemByName(@ModelAttribute PhoneBookItem phoneBookItem, @RequestParam String name, ModelMap model) {
 
 
         List<PhoneBookItem> phoneBookItems = phoneBookItemService.findByName(name);
-        if(phoneBookItems.isEmpty()) {
+        if (phoneBookItems.isEmpty()) {
             model.addAttribute("fail", "No phoneBookItem with name  " + name + " in DB ");
             return "books";
         }
         model.addAttribute("phoneBookItems", phoneBookItems);
-        PhoneBookItem phoneBookItem1= new PhoneBookItem();
+        PhoneBookItem phoneBookItem1 = new PhoneBookItem();
         model.addAttribute("phoneBookItem", phoneBookItem1);
 //        model.addAttribute("name", name);
         return "main";
@@ -144,16 +139,50 @@ public class PhoneBookItemController {
 
 
         List<PhoneBookItem> phoneBookItems = phoneBookItemService.findBySurname(surname);
-        if(phoneBookItems.isEmpty()) {
+        if (phoneBookItems.isEmpty()) {
             model.addAttribute("fail", "No phoneBookItem with name  " + surname + " in DB ");
             return "books";
         }
         model.addAttribute("phoneBookItems", phoneBookItems);
-        PhoneBookItem phoneBookItem1= new PhoneBookItem();
+        PhoneBookItem phoneBookItem1 = new PhoneBookItem();
         model.addAttribute("phoneBookItem", phoneBookItem1);
 //        model.addAttribute("name", name);
         return "main";
 //        return "redirect:/listAdmin"+books;
+    }
+
+
+    @Autowired
+    PhoneBookItemDAO phoneBookItemDAO;
+
+
+    @RequestMapping(value = {"/listAdminJSON"}, method = RequestMethod.GET)
+    public String listUsersJSON(ModelMap model) throws IOException {
+        PhoneBookItem phoneBookItem = new PhoneBookItem();
+
+
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        String name = auth.getName();
+//
+//        User user = userService.findByLogin(name);
+//        Set<PhoneBookItem> phoneBookItems = user.getPhoneBookItems();
+        PhoneBookItemDAO.sout();
+
+//        PhoneBookItem phoneBookItem=new PhoneBookItem();
+//        phoneBookItem.setEmail("sadads");
+//        phoneBookItem.setId(123);
+//        phoneBookItem.setName("adsdas");
+//
+//        List<PhoneBookItem> phoneBookItems=new ArrayList<PhoneBookItem>();
+//        phoneBookItems.add(phoneBookItem);
+//        phoneBookItems.add(phoneBookItem);
+//        PhoneBookItemDAO.toJSON(phoneBookItems);
+//        PhoneBookItemDAO.sout();
+
+        List<PhoneBookItem > phoneBookItemss =phoneBookItemDAO.findAll();
+                model.addAttribute("phoneBookItems", phoneBookItemss);
+//        model.addAttribute("phoneBookItem", phoneBookItem);
+        return "main";
     }
 
 }
