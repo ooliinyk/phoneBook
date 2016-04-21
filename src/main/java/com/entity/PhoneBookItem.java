@@ -1,7 +1,6 @@
 package com.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.validator.Phone;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -21,49 +20,49 @@ public class PhoneBookItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonProperty("id")
+//    @JsonProperty("id")
     @Column(name = "phone_book_item_id")
     private long id;
 
 
     @Size(min=4)
     @NotEmpty
-    @JsonProperty("surname")
+//    @JsonProperty("surname")
     @Column(name = "surname")
     private String surname;
 
     @Size(min=4)
     @NotEmpty
-    @JsonProperty("name")
+//    @JsonProperty("name")
     @Column(name = "name")
     private String name;
 
     @Size(min=4)
     @NotEmpty
-    @JsonProperty("patronymic")
+//    @JsonProperty("patronymic")
     @Column(name = "patronymic")
     private String patronymic;
 
 
     @Phone
-    @JsonProperty("mob_phone")
+//    @JsonProperty("mob_phone")
     @Column(name = "mob_phone")
     private String mobPhone;
 
-    @JsonProperty("home_phone")
+//    @JsonProperty("home_phone")
     @Column(name = "home_phone")
     private String homePhone;
 
-    @JsonProperty("address")
+//    @JsonProperty("address")
     @Column(name = "address")
     private String address;
 
     @Email
-    @JsonProperty("email")
+//    @JsonProperty("email")
     @Column(name = "email")
     private String email;
 
-    @JsonIgnore
+//    @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_to_phone_book_item",
             joinColumns = {@JoinColumn(name = "phone_book_item_id")},

@@ -14,11 +14,11 @@ public interface PhoneBookItemDao {
 
     PhoneBookItem findById(long id);
 
-    List<PhoneBookItem> findByName(String name);
+    List<PhoneBookItem> findByName(String name, String login);
 
-    List<PhoneBookItem> findBySurname(String surname);
+    List<PhoneBookItem> findBySurname(String surname, String login);
 
-    List<PhoneBookItem> findByMobPhone(String mobPhone);
+    List<PhoneBookItem> findByMobPhone(String mobPhone, String login);
 
     void delteById(long id);
 

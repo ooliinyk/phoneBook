@@ -28,12 +28,16 @@ public class PhoneBookItemServiceImpl implements PhoneBookItemService {
         return dao.findAll();
     }
 
-    public List<PhoneBookItem> findByName(String name) {
-        return dao.findByName(name);
+    public List<PhoneBookItem> findByName(String name, String login) {
+        return dao.findByName(name,login);
     }
 
-    public List<PhoneBookItem> findBySurname(String surnmae) {
-        return dao.findBySurname(surnmae);
+    public List<PhoneBookItem> findBySurname(String surnmae, String login) {
+        return dao.findBySurname(surnmae,login);
+    }
+
+    public List<PhoneBookItem> findByMobPhone(String mobPhone, String login) {
+        return dao.findByMobPhone(mobPhone,login);
     }
 
       public void saveDocument(PhoneBookItem phoneBookItem) {

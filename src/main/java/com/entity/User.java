@@ -1,7 +1,6 @@
 package com.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -22,41 +21,41 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonProperty("user_id")
+//    @JsonProperty("user_id")
     @Column(name = "user_id")
     private long id;
 
     @Size(min=5)
     @NotEmpty
-    @JsonProperty("login")
+//    @JsonProperty("login")
     @Column(name = "login")
     private String login;
 
     @Size(min=5)
     @NotEmpty
-    @JsonProperty("password")
+//    @JsonProperty("password")
     @Column(name = "password")
     private String password;
 
     @Size(min=5)
     @NotEmpty
-    @JsonProperty("surname")
+//    @JsonProperty("surname")
     @Column(name = "surname")
     private String surname;
 
     @Size(min=5)
     @NotEmpty
-    @JsonProperty("name")
+//    @JsonProperty("name")
     @Column(name = "name")
     private String name;
 
     @Size(min=5)
     @NotEmpty
-    @JsonProperty("patronymic")
+//    @JsonProperty("patronymic")
     @Column(name = "patronymic")
     private String patronymic;
 
-    @JsonProperty("roles")
+//    @JsonProperty("roles")
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "role_user",
             joinColumns = {@JoinColumn(name = "user_id")},
@@ -65,7 +64,7 @@ public class User {
 
 
 
-    @JsonProperty("phoneBookItems")
+//    @JsonProperty("phoneBookItems")
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_to_phone_book_item",
             joinColumns = {@JoinColumn(name = "user_id")},
@@ -136,7 +135,22 @@ public class User {
         this.surname = surname;
     }
 
-    @Override
+//    @Override
+//    public String toString() {
+//        return "User{" +
+//                "id=" + id +
+//                ", login='" + login + '\'' +
+//                ", password='" + password + '\'' +
+//                ", surname='" + surname + '\'' +
+//                ", name='" + name + '\'' +
+//                ", patronymic='" + patronymic + '\'' +
+//                ", roles=" + roles +
+//                ", phoneBookItems=" + phoneBookItems +
+//                '}';
+//    }
+
+
+        @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("User{");
         sb.append("id=").append(id);

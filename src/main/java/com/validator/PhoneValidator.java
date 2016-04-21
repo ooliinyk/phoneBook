@@ -24,11 +24,15 @@ public class PhoneValidator implements ConstraintValidator<Phone, String> {
             //validating phone number with extension length from 3 to 5
         else if(phoneNo.matches("\\d{3}-\\d{3}-\\d{4}\\s(x|(ext))\\d{3,5}")) return true;
             //validating phone number where area code is in braces ()
+        else if(phoneNo.matches("\\+?([0-9]{2})?\\(?[0-9]{3}\\)?[0-9]{3}\\-?[0-9]{2}\\-?[0-9]{2}")) return true;
+            //+38(066)1234567
+        else if(phoneNo.matches("\\+?([0-9]{3})?\\(?[0-9]{2}\\)?[0-9]{3}\\-?[0-9]{2}\\-?[0-9]{2}")) return true;
+
         else if(phoneNo.matches("\\(\\d{3}\\)-\\d{3}-\\d{4}")) return true;
             //return false if nothing matches the input
         else return false;
 
-
+//        +380(66)1234567
 //        https://habrahabr.ru/post/110731/
 
     }

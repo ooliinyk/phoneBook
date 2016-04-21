@@ -13,9 +13,11 @@ public interface PhoneBookItemService {
 
     List<PhoneBookItem> findAll();
 
-    List<PhoneBookItem> findByName(String name);
+    List<PhoneBookItem> findByName(String name, String login);
 
-    List<PhoneBookItem> findBySurname(String name);
+    List<PhoneBookItem> findBySurname(String name, String login);
+
+    List<PhoneBookItem> findByMobPhone(String mobPhone, String login);
 
     void saveDocument(PhoneBookItem phoneBookItem);
 

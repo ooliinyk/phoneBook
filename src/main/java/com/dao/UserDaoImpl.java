@@ -39,4 +39,10 @@ public class UserDaoImpl extends AbstractDao<Long, User> implements UserDao {
         crit.add(Restrictions.eq("login", login));
         return (User) crit.uniqueResult();
     }
+
+//    public User findMobPhone(String login, String mobPhone) {
+//        Criteria crit = createEntityCriteria();
+//        crit.add(Restrictions.eq("login", login));
+//        return (User) crit.uniqueResult();
+//    }
 }
